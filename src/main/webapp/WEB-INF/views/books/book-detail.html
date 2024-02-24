@@ -13,7 +13,7 @@
 
     <br>
 
-    <div th:if="${book.getOwnerId()} == 0">
+    <div th:if="${book.getBookOwner()} == null">
         <p>Эта книга свободна. Кому назначить ее ?</p>
         <form th:method="PATCH" th:action="@{/books/{id}/give(id=${book.getId()})}">
             <label for="person">Выберите человека: </label>
@@ -24,7 +24,7 @@
         </form>
     </div>
 
-    <div th:if="${book.getOwnerId()} != 0">
+    <div th:if="${book.getBookOwner()} != null">
         <form th:method="PATCH" th:action="@{/books/{id}/free(id=${book.getId()})}">
             <p th:text="'Книга сейчас у: ' + ${person.getFullName()}"/>
             <input type="submit" value="Освободить книгу">

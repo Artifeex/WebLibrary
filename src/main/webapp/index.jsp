@@ -14,7 +14,15 @@
 
 <br>
 
+<a style="font-size: 20px" href="/books?sort_by_year=true">Список всех книг(отсортированный по годам)</a>
+
+<br/>
+
 <a style="font-size: 20px" href="/books">Список всех книг</a>
+
+<br/>
+
+<a style="font-size: 20px" href="/books/search">Поиск книги по названию</a>
 
 </body>
 </html>
