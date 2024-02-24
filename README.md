@@ -1,7 +1,7 @@
 # Веб-Библиотека
 Проект состоит из двух веток:
 1) jdbc-template: функционал 1-5, реализованный с помощью JDBCTemplate
-2) spring-data-jpa: функционал 1-8, реализованный с помощью Hibernate и Spring Data JPA
+2) spring-jpa: функционал 1-8, реализованный с помощью Hibernate и Spring Data JPA
 
 Использованные технологии:
 1) Spring Core
