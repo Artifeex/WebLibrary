@@ -47,7 +47,9 @@ public class BooksService {
 
     @Transactional
     public void updateBook(int id, Book book) {
+        Book bookToBeUpdated = booksRepository.findById(id).get();
         book.setId(id);
+        book.setBookOwner(bookToBeUpdated.getBookOwner());
         booksRepository.save(book);
     }
 
@@ -55,7 +57,7 @@ public class BooksService {
     public void giveBookToPerson(int personId, int bookId) {
         Book book = booksRepository.findById(bookId).orElse(new Book());
         book.setRentalTime(new Date());
-        //обновится в БД ?
+        //обновится в БД ? Да, обновится, так как book будет находиться в persistent context
         book.setBookOwner(peopleService.getPerson(personId, false));
     }
 
@@ -63,7 +65,7 @@ public class BooksService {
     public void freeBook(int bookId) {
         Book book = booksRepository.findById(bookId).orElse(new Book());
         book.setRentalTime(null);
-        //обновится в БД ?
+        //обновится в БД? Да, обновится, так как book будет находиться в persistent context
         book.setBookOwner(null);
     }
 
